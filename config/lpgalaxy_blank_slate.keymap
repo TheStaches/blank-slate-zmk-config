@@ -12,15 +12,6 @@
 #define lower 1
 #define raise 2
 
-// Modifies ms to trigger tap vs hold
-&lt { 
-    quick_tap_ms = <200>; 
-};
-
-&mt {
-    tapping-term-ms = <400>;
-};
-
 #define BT(n) BT_SEL n
 
 / {
@@ -71,10 +62,10 @@
             // |       |      |      |      |      |      |       |       |      |       |       |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |    LSHIFT    |  RAIS |      |       |       |       |
             bindings = <
-                &kp none  &kp none     &kp none    &kp none    &kp none    &kp none    &kp none    &kp ULPAR&kp RPAR     &kp MINUS    &kp EQUAL     &kp DEL
-                &kp none    &kp none     &kp none    &kp none    &kp none    &kp none    &kp none    &kp LBKT    &kp RBKT     &kp LBRC    &kp RBRC  &kp BSLH
-                &kp none  &kp none     &kpnoneX    &kp none    &kp none    &kp none    &kp none    &kp none    &kp none &kp none  &kp none &kp RET
-                &kp none     &kp LCTRL &kp LALT &kp LGUI &mo 1    &kp LSHIFT  &mo 2    &kp none  &kp none &kp none    &kp none
+                &kp none  &kp none   &kp none   &kp none   &kp none   &kp none    &kp none   &kp ULPAR  &kp RPAR   &kp MINUS  &kp EQUAL  &kp DEL
+                &kp none  &kp none   &kp none   &kp none   &kp none   &kp none    &kp none   &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp BSLH
+                &kp none  &kp none   &kpnoneX   &kp none   &kp none   &kp none    &kp none   &kp none   &kp none   &kp none   &kp none   &kp RET
+                &kp none  &kp LCTRL  &kp LALT   &kp LGUI   &mo 1      &kp LSHIFT  &mo 2      &kp none   &kp none   &kp none   &kp none   &kp none
             >;
         };
 
@@ -85,10 +76,10 @@
             // |       |      |      |      |      |      |       |  LEFT | DOWN | RIGHT |       |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |     LSHIFT   |  RAIS |      |       |       |       |
             bindings = <
-                &kp GRAVE  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8     &kp N9    &kp N0     &kp DEL
-                &kp none    &kp none     &kp none    &kp none    &kp none    &kp none    &kp none    &kp none    &kp UP     &kp none    &kp none  &kp none
-                &kp none  &kp none     &kp none    &kp none    &kp none    &kp none    &kp none    &kp LEFT    &kp DOWN &kp RIGHT  &kp none &kp RET
-                &kp none     &kp LCTRL &kp LALT &kp LGUI &mo 1    &kp LSHIFT  &mo 2    &kp none  &kp none &kp none    &kp none
+                &kp GRAVE  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5      &kp N6    &kp N7     &kp N8     &kp N9    &kp N0     &kp DEL
+                &kp none   &kp none   &kp none  &kp none  &kp none  &kp none    &kp none  &kp none   &kp UP     &kp none  &kp none   &kp none
+                &kp none   &kp none   &kp none  &kp none  &kp none  &kp none    &kp none  &kp LEFT   &kp DOWN   &kp RIGHT &kp none   &kp RET
+                &kp none   &kp LCTRL  &kp LALT  &kp LGUI  &mo 1     &kp LSHIFT  &mo 2     &kp none   &kp none   &kp none  &kp none   &kp none
             >;
         };
 
