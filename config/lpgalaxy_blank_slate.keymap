@@ -15,8 +15,9 @@
 #define TBLE_MIT     1
 // #define TBLE_DUAL_2U 1
 
-#define lower 1
-#define raise 2
+#define NAV_L 1
+#define NUM_L 2
+#define SYM_L 3
 
 // Using layer taps on thumbs, having quick tap as well helps w/ repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -82,31 +83,51 @@
             >;
         };
 
-        lower {
-            // ------------------------------------------------------------------------------------------
-            // |       |      |      |      |      |      |       |  LPAR | RPAR | MINUS | EQUAL |  DEL  |
-            // |       |      |      |      |      |      |       |  LBKT | RBKT |  LBRC |  RBRC |  BSLH |
-            // |       |      |      |      |      |      |       |       |      |       |       |  RET  |
-            // |       | LCTRL| LALT | LGUI | LOWR |    LSHIFT    |  RAIS |      |       |       |       |
+        nav_layer {
+            label = "Nav";
             bindings = <
-                &kp none  &kp none   &kp none   &kp none   &kp none   &kp none    &kp none   &kp ULPAR  &kp RPAR   &kp MINUS  &kp EQUAL  &kp DEL
-                &kp none  &kp none   &kp none   &kp none   &kp none   &kp none    &kp none   &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp BSLH
-                &kp none  &kp none   &kpnoneX   &kp none   &kp none   &kp none    &kp none   &kp none   &kp none   &kp none   &kp none   &kp RET
-                &kp none  &kp LCTRL  &kp LALT   &kp LGUI   &mo 1           &kp LSHIFT        &mo 2      &kp none   &kp none   &kp none   &kp none
+&bt BT_CLR &trans     &trans     &trans      &trans          &trans       &trans     &trans         &trans      &trans     &trans     &kp DEL
+&trans     &trans     &trans     &trans      &trans          &trans       &trans     &kp LEFT       &kp DOWN    &kp UP     &kp RIGHT  &trans
+&trans     &bt BT(0)  &bt BT(1)  &bt BT(2)   &bt BT(3)       &bt BT(4)    &trans     &kp HOME       &kp PG_DN   &kp PG_UP  &kp END    &trans
+#ifdef TBLE_DUAL_2U
+&trans  &trans        &trans     &trans              &trans                    &trans       &trans         &trans &trans &trans
+#elif defined(TBLE_MIT)
+&trans  &trans        &trans     &trans      &trans                &trans             &trans      &trans   &trans &trans &trans
+#else
+&trans  &trans        &trans     &trans      &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+#endif
             >;
         };
 
-         raise {
-	    // ------------------------------------------------------------------------------------------
-            // |   `   |  1   |  2   |  3   |  4   |  5   |   6   |   7   |  8   |  9    |   0   |  DEL  |
-            // |       |      |      |      |      |      |       |       |  UP  |       |       |       |
-            // |       |      |      |      |      |      |       |  LEFT | DOWN | RIGHT |       |  RET  |
-            // |       | LCTRL| LALT | LGUI | LOWR |     LSHIFT   |  RAIS |      |       |       |       |
+        num_layer {
+            label = "Num";
             bindings = <
-                &kp GRAVE  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5      &kp N6    &kp N7     &kp N8     &kp N9    &kp N0     &kp DEL
-                &kp none   &kp none   &kp none  &kp none  &kp none  &kp none    &kp none  &kp none   &kp UP     &kp none  &kp none   &kp none
-                &kp none   &kp none   &kp none  &kp none  &kp none  &kp none    &kp none  &kp LEFT   &kp DOWN   &kp RIGHT &kp none   &kp RET
-                &kp none   &kp LCTRL  &kp LALT  &kp LGUI  &mo 1          &kp LSHIFT       &mo 2      &kp none   &kp none   &kp none  &kp none
+&trans     &kp LBKT   &trans &trans &trans    &kp RBKT    &kp C_PREV    &kp N7     &kp N8      &kp N9       &trans     &trans
+&trans     &kp MINUS  &trans &trans &trans    &kp EQUAL   &kp C_NEXT    &kp N4     &kp N5      &kp N6       &trans     &trans
+&trans     &kp GRAVE  &trans &trans &trans    &kp BSLH    &trans        &kp N1     &kp N2      &kp N3       &trans     &trans
+#ifdef TBLE_DUAL_2U
+&trans  &trans       &trans     &kp N0              &trans                 &trans            &trans         &trans &trans &trans
+#elif defined(TBLE_MIT)
+&trans  &trans       &trans     &kp N0      &trans           &none            &trans        &kp DEL      &trans &trans &trans
+#else
+&trans  &trans       &trans     &kp N0      &trans    &none         &none     &kp ESC        &kp DEL      &trans &trans &trans
+#endif
+            >;
+        };
+
+        sym_layer {
+            label = "Sym";
+            bindings = <
+&trans     &kp LBRC   &kp AMPS   &kp STAR    &kp LPAR     &kp RBRC     &trans     &trans    &trans       &trans       &trans     &bootloader
+&trans     &kp COLON  &kp DLLR   &kp PRCNT   &kp CARET    &kp PLUS     &trans     &trans    &trans       &trans       &trans     &trans
+&trans     &kp TILDE  &kp EXCL   &kp AT      &kp HASH     &kp PIPE     &trans     &trans    &trans       &trans       &trans     &trans
+#ifdef TBLE_DUAL_2U
+&trans &trans        &trans     &kp RPAR                &trans                    &trans       &trans         &trans &trans &trans
+#elif defined(TBLE_MIT)
+&trans &trans        &trans     &kp RPAR        &trans                &trans             &trans      &trans   &trans &trans &trans
+#else
+&trans &trans        &trans     &kp RPAR        &trans          &trans       &trans    &trans  &trans         &trans &trans &trans
+#endif
             >;
         };
     };
