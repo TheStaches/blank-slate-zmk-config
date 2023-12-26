@@ -26,15 +26,15 @@
         base_layer {
             label = "Base";
             // ------------------------------------------------------------------------------------------
-            // |  ESC  |  Q   |  W   |  F   |  J   |  G   |   Y   |   U   |  I   |  O   |   P   |  BSPC |
+            // |  ESC  |  Q   |  W   |  F   |  J   |  G   |   Y   |   U   |  I   |  O   |   P   |  BKSP |
             // |  TAB  |  A   |  R   |  S   |  T   |  D   |   H   |   N   |  E   |  L   |   ;   |   '   |
             // | SHIFT |  Z   |  X   |  C   |  V   |  B   |   K   |   M   |  ,   |  .   |   /   |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |  SHIFT/SPACE |  RAIS | LEFT | DOWN |   UP  | RIGHT |
             bindings = <
- &kp ESC    &kp Q      &kp W      &kp E       &kp R          &kp T          &kp Y            &kp U          &kp I       &kp O      &kp P         &kp BKSP
- &kp TAB    &kp A      &kp S      &kp D       &kp F          &kp G          &kp H            &kp J          &kp K       &kp L      &kp SEMI      &kp QUOT
- &kp LSHFT  &kp Z      &kp X      &kp C       &kp V          &kp B          &kp N            &kp M          &kp COMMA   &kp DOT    &kp FSLH      &kp RET
- &kp LCTRL  &mo SYM_L   &kp LGUI  &kp LALT    &mo NAV_L          &kp SPACE                   &mo NUM_L      &kp LEFT    &kp UP     &kp DOWN      &kp RIGHT
+                &kp ESC    &kp Q     &kp W    &kp F    &kp J    &kp G    &kp Y    &kp U    &kp I     &kp O    &kp P     &kp BKSP
+                &kp TAB    &kp A     &kp R    &kp S    &kp T    &kp D    &kp H    &kp N    &kp E     &kp L    &kp SEMI  &kp SQT
+                &kp LSHFT  &kp Z     &kp X    &kp C    &kp V    &kp B    &kp K    &kp M    &kp COMMA &kp DOT  &kp SLASH &kp RET
+                &kp none   &kp LCTRL &kp LALT &kp LGUI &mo 1    &mt LSHIFT SPACE  &mo 2    &kp LEFT  &kp DOWN &kp UP    &kp RIGHT
             >;
         };
 
