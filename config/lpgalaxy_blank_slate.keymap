@@ -45,8 +45,8 @@ lower {
             // |       |      |      |      |      |      |       |       |      |       |       |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |    LSHIFT    |  RAIS |      |       |       |       |
             bindings = <
-                &none  &none   &none   &none   &none   &none    &none   &kp ULPAR  &kp RPAR   &kp MINUS  &kp EQUAL  &kp DEL
-                &none  &none   &none   &none   &none   &none    &none   &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp BSLH
+                &none  &none   &none   &none   &none   &none    &none   &kp none  &kp none   &kp none  &kp none  &kp none
+                &none  &none   &none   &none   &none   &none    &none   &kp none   &kp none   &kp none   &kp none   &kp none
                 &none  &none   &none   &none   &none   &none    &none   &none      &none      &none      &none      &kp RET
                 &none  &trans  &trans  &trans  &trans     &kp LSHIFT    &trans     &none      &none      &none      &none
             >;
