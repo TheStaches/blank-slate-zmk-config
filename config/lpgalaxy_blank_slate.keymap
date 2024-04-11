@@ -6,8 +6,6 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 
 #define LOWR 1
 #define RAIS 2
@@ -15,54 +13,57 @@
 #define BT(n) BT_SEL n
 
 / {
-    chosen {
-       zmk,matrix_transform = &mit_transform;
-    };
+    chosen { zmk,matrix_transform = &mit_transform; };
 
     keymap {
         compatible = "zmk,keymap";
 
         base_layer {
             label = "Base";
+
             // ------------------------------------------------------------------------------------------
             // |  ESC  |  Q   |  W   |  F   |  J   |  G   |   Y   |   U   |  I   |  O   |   P   |  BKSP |
             // |  TAB  |  A   |  R   |  S   |  T   |  D   |   H   |   N   |  E   |  L   |   ;   |   '   |
             // | SHIFT |  Z   |  X   |  C   |  V   |  B   |   K   |   M   |  ,   |  .   |   /   |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |  SHIFT/SPACE |  RAIS | LEFT | DOWN |   UP  | RIGHT |
+
             bindings = <
-                &kp ESC    &kp Q     &kp W    &kp F    &kp J    &kp G    &kp Y    &kp U    &kp I     &kp O    &kp P     &kp BKSP
-                &kp TAB    &kp A     &kp R    &kp S    &kp T    &kp D    &kp H    &kp N    &kp E     &kp L    &kp SEMI  &kp SQT
-                &kp LSHFT  &kp Z     &kp X    &kp C    &kp V    &kp B    &kp K    &kp M    &kp COMMA &kp DOT  &kp SLASH &kp RET
-                &none      &kp LCTRL &kp LALT &kp LGUI &mo LOWR    &mt LSHIFT SPACE  &mo RAIS    &kp LEFT  &kp DOWN &kp UP    &kp RIGHT
+&kp ESC    &kp Q      &kp W     &kp F     &kp P     &kp G                    &kp J  &kp L     &kp U      &kp Y     &kp SEMICOLON  &kp BKSP
+&kp TAB    &kp A      &kp R     &kp S     &kp T     &kp D                    &kp H  &kp N     &kp E      &kp I     &kp O          &kp SQT
+&kp LSHFT  &kp Z      &kp X     &kp C     &kp V     &kp B                    &kp K  &kp M     &kp COMMA  &kp DOT   &kp SLASH      &kp RET
+&none      &kp LCTRL  &kp LALT  &kp LGUI  &mo LOWR         &mt LSHIFT SPACE         &mo RAIS  &kp LEFT   &kp DOWN  &kp UP         &kp RIGHT
             >;
         };
 
-lower {
-    label = "Lower";
+        lower {
+            label = "Lower";
+
             // ------------------------------------------------------------------------------------------
             // |       |      |      |      |      |      |       |  LPAR | RPAR | MINUS | EQUAL |  DEL  |
             // |       |      |      |      |      |      |       |  LBKT | RBKT |  LBRC |  RBRC |  BSLH |
             // |       |      |      |      |      |      |       |       |      |       |       |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |    LSHIFT    |  RAIS |      |       |       |       |
+
             bindings = <
-                &none  &none   &none   &none   &none   &none    &none   &kp LPAR  &kp RPAR   &kp MINUS  &kp EQUAL  &kp DEL
-                &none  &none   &none   &none   &none   &none    &none   &kp LBKT   &kp RBKT   &kp LBRC   &kp RBRC   &kp BSLH
-                &none  &none   &none   &none   &none   &none    &none   &none      &none      &none      &none      &kp RET
-                &none  &trans  &trans  &trans  &trans     &kp LSHIFT    &trans     &none      &none      &none      &none
+&none   &none   &none   &none   &none   &none              &none  &kp LPAR  &kp RPAR  &kp MINUS  &kp EQUAL  &kp DEL
+&none   &none   &none   &none   &none   &none              &none  &kp LBKT  &kp RBKT  &kp LBRC   &kp RBRC   &kp BSLH
+&trans  &none   &none   &none   &none   &none              &none  &none     &none     &none      &none      &kp RET
+&none   &trans  &trans  &trans  &trans         &kp LSHIFT         &trans    &none     &none      &none      &none
             >;
         };
 
-raise {
-	    // ------------------------------------------------------------------------------------------
+        raise {
+            // ------------------------------------------------------------------------------------------
             // |   `   |  1   |  2   |  3   |  4   |  5   |   6   |   7   |  8   |  9    |   0   |  DEL  |
             // |       |      |      |      |      |      |       |       |  UP  |       |       |       |
             // |       |      |      |      |      |      |       |  LEFT | DOWN | RIGHT |       |  RET  |
             // |       | LCTRL| LALT | LGUI | LOWR |     LSHIFT   |  RAIS |      |       |       |       |
+
             bindings = <
-                &kp GRAVE  &kp N1 &kp N2    &kp N3    &kp N4    &kp N5      &kp N6    &kp N7     &kp N8     &kp N9    &kp N0     &kp DEL
-                &none   &none   &none  &none  &none  &none    &none  &none   &kp UP     &none  &none   &none
-                &none   &none   &none  &none  &none  &none    &none  &kp LEFT   &kp DOWN   &kp RIGHT &none   &kp RET
-                &none   &trans  &trans  &trans  &trans          &kp LSHIFT       &trans      &none   &none   &none  &none
+&kp GRAVE  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5              &kp N6  &kp N7    &kp N8    &kp N9     &kp N0  &kp DEL
+&none      &none   &none   &none   &none   &none               &none   &none     &kp UP    &none      &none   &none
+&trans     &none   &none   &none   &none   &none               &none   &kp LEFT  &kp DOWN  &kp RIGHT  &none   &kp RET
+&none      &trans  &trans  &trans  &trans          &kp LSHIFT          &trans    &none     &none      &none   &none
             >;
         };
     };
